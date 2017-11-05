@@ -16,6 +16,8 @@ public class TrainService {
     private static final int FROM = 0;
     private static final int TO = 1;
     private static final int DIS = 2;
+    private static final String NO_SUCH_ROUTE = "NO SUCH ROUTE";
+
     private Map<Character, Set<Route>> adjacentMap;
 
     public TrainService() {
@@ -24,7 +26,7 @@ public class TrainService {
 
     /**
      * Init the data.
-     * @param graph
+     * @param graph adjacent table of graph.
      */
     public void init(List<String> graph) {
         for (String s : graph) {
@@ -37,13 +39,56 @@ public class TrainService {
     }
 
     /**
+     * Number of trips between given start location and end location with maximum number stops.
+     * @param start start location.
+     * @param end end location.
+     * @param maximumStops max stops we can make.
+     * @return number of trips or an error message.
+     */
+    public String numberOfTripsWithMaxStops(Character start, Character end, int maximumStops) {
+        return "";
+    }
+
+    /**
+     * Number of trips between given start location and end location with stops we have to make.
+     * @param start start location.
+     * @param end end location.
+     * @param stops stops we should make.
+     * @return number of trips or an error message.
+     */
+    public String numberOfTripsWithExactStops(Character start, Character end, int stops) {
+        return "";
+    }
+
+    /**
+     * Shortest distance between given location.
+     * @param start start location.
+     * @param end end location.
+     * @return distance of an error message.
+     */
+    public String shortestRouteBetweenPath(Character start, Character end) {
+        return "";
+    }
+
+    /**
+     * Number of different routes between given location with a distance less than given limit.
+     * @param start start location.
+     * @param end end location
+     * @param maxDistance max distance along the route.
+     * @return number of routes or an error message.
+     */
+    public String numberOfDifferentRoutesLessThanDistance(Character start, Character end, int maxDistance) {
+        return "";
+    }
+
+    /**
      * Return the distance of given path.
      * @param path given path.
      * @return distance or error message.
      */
     public String getDistance(String path) {
         int res = calculateDistance(path);
-        if (res < 0) return "NO SUCH ROUTE";
+        if (res < 0) return NO_SUCH_ROUTE;
         else return String.valueOf(res);
     }
 
